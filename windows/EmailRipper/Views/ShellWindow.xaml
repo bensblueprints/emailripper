@@ -15,6 +15,33 @@
       <ColumnDefinition Width="*"/>
     </Grid.ColumnDefinitions>
 
+    <Grid.Resources>
+      <Style x:Key="NavButton" TargetType="Button">
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#FFD4D4DC"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="14,10"/>
+        <Setter Property="Margin" Value="0,2"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="Button">
+              <Border x:Name="br" Background="{TemplateBinding Background}" CornerRadius="8" Padding="{TemplateBinding Padding}">
+                <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+              </Border>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                  <Setter TargetName="br" Property="Background" Value="#22FFFFFF"/>
+                </Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+    </Grid.Resources>
+
     <!-- Sidebar -->
     <Border Grid.Column="0" Background="#FF0A0A10" BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,0,1,0">
       <Grid>
@@ -65,32 +92,6 @@
           </Border>
         </StackPanel>
 
-        <StackPanel.Resources>
-          <Style x:Key="NavButton" TargetType="Button">
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="#FFD4D4DC"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="14,10"/>
-            <Setter Property="Margin" Value="0,2"/>
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="FontSize" Value="13"/>
-            <Setter Property="Template">
-              <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                  <Border x:Name="br" Background="{TemplateBinding Background}" CornerRadius="8" Padding="{TemplateBinding Padding}">
-                    <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                  </Border>
-                  <ControlTemplate.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                      <Setter TargetName="br" Property="Background" Value="#22FFFFFF"/>
-                    </Trigger>
-                  </ControlTemplate.Triggers>
-                </ControlTemplate>
-              </Setter.Value>
-            </Setter>
-          </Style>
-        </StackPanel.Resources>
       </Grid>
     </Border>
 

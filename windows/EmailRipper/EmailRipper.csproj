@@ -5,7 +5,6 @@
     <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>Assets/app.ico</ApplicationIcon>
     <AssemblyName>EmailRipper</AssemblyName>
     <RootNamespace>EmailRipper</RootNamespace>
     <Version>0.1.0</Version>

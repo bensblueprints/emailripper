@@ -44,7 +44,6 @@
   <Style x:Key="MetricLabel" TargetType="TextBlock">
     <Setter Property="FontSize" Value="12"/>
     <Setter Property="Foreground" Value="{StaticResource MutedBrush}"/>
-    <Setter Property="TextTransformEffect" Value="{x:Null}"/>
   </Style>
 
   <Style x:Key="H1" TargetType="TextBlock">
