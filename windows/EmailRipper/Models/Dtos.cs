@@ -89,6 +89,30 @@ public class AnalyticsTotals
     [JsonPropertyName("active_campaigns")] public int ActiveCampaigns { get; set; }
 }
 
+public class SendingDomain
+{
+    public long Id { get; set; }
+    public string Domain { get; set; } = "";
+    [JsonPropertyName("warmup_enabled")] public bool WarmupEnabled { get; set; }
+    [JsonPropertyName("daily_cap")] public int DailyCap { get; set; }
+    [JsonPropertyName("ramp_step")] public int RampStep { get; set; }
+    [JsonPropertyName("current_cap")] public int CurrentCap { get; set; }
+    [JsonPropertyName("max_cap")] public int MaxCap { get; set; }
+    [JsonPropertyName("dkim_selector")] public string? DkimSelector { get; set; }
+    [JsonPropertyName("spf_status")] public string? SpfStatus { get; set; }
+    [JsonPropertyName("spf_record")] public string? SpfRecord { get; set; }
+    [JsonPropertyName("dkim_status")] public string? DkimStatus { get; set; }
+    [JsonPropertyName("dkim_record")] public string? DkimRecord { get; set; }
+    [JsonPropertyName("dmarc_status")] public string? DmarcStatus { get; set; }
+    [JsonPropertyName("dmarc_record")] public string? DmarcRecord { get; set; }
+    [JsonPropertyName("reputation_score")] public int ReputationScore { get; set; }
+    [JsonPropertyName("last_checked_at")] public DateTime? LastCheckedAt { get; set; }
+    [JsonPropertyName("inbox_count")] public int InboxCount { get; set; }
+}
+
+public record DomainsResponse(List<SendingDomain> Domains);
+public record DomainResponse(SendingDomain Domain);
+
 public record InboxesResponse(List<Inbox> Inboxes);
 public record WarmupStatsResponse(List<WarmupStats> Inboxes);
 public record CampaignsResponse(List<Campaign> Campaigns);

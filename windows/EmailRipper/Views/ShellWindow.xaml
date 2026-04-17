@@ -71,7 +71,8 @@
           <Button x:Name="BtnTemplates" Style="{StaticResource NavButton}" Content="Templates" Tag="Templates" Click="NavClick"/>
           <Separator Margin="12,16,12,8" Background="{StaticResource BorderBrush}"/>
           <Button x:Name="BtnInboxes"   Style="{StaticResource NavButton}" Content="Inboxes" Tag="Inboxes" Click="NavClick"/>
-          <Button x:Name="BtnWarming"   Style="{StaticResource NavButton}" Content="Warming" Tag="Warming" Click="NavClick"/>
+          <Button x:Name="BtnWarming"   Style="{StaticResource NavButton}" Content="Inbox warming" Tag="Warming" Click="NavClick"/>
+          <Button x:Name="BtnDomains"   Style="{StaticResource NavButton}" Content="Domain warming" Tag="Domains" Click="NavClick"/>
           <Separator Margin="12,16,12,8" Background="{StaticResource BorderBrush}"/>
           <Button x:Name="BtnAnalytics" Style="{StaticResource NavButton}" Content="Analytics" Tag="Analytics" Click="NavClick"/>
           <Button x:Name="BtnSettings"  Style="{StaticResource NavButton}" Content="Settings" Tag="Settings" Click="NavClick"/>

@@ -26,6 +26,7 @@ public partial class ShellViewModel : ObservableObjectBase
     public void GoToLeads() { ActivePage = "Leads"; _nav.NavigateTo<LeadsView, LeadsViewModel>(); }
     public void GoToInboxes() { ActivePage = "Inboxes"; _nav.NavigateTo<InboxesView, InboxesViewModel>(); }
     public void GoToWarming() { ActivePage = "Warming"; _nav.NavigateTo<WarmingView, WarmingViewModel>(); }
+    public void GoToDomains() { ActivePage = "Domains"; _nav.NavigateTo<DomainsView, DomainsViewModel>(); }
     public void GoToTemplates() { ActivePage = "Templates"; _nav.NavigateTo<TemplatesView, TemplatesViewModel>(); }
     public void GoToAnalytics() { ActivePage = "Analytics"; _nav.NavigateTo<AnalyticsView, AnalyticsViewModel>(); }
     public void GoToSettings() { ActivePage = "Settings"; _nav.NavigateTo<SettingsView, SettingsViewModel>(); }

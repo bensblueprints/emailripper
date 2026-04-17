@@ -34,6 +34,7 @@ public partial class ShellWindow : Window
             case "Templates": _vm.GoToTemplates(); break;
             case "Inboxes": _vm.GoToInboxes(); break;
             case "Warming": _vm.GoToWarming(); break;
+            case "Domains": _vm.GoToDomains(); break;
             case "Analytics": _vm.GoToAnalytics(); break;
             case "Settings": _vm.GoToSettings(); break;
         }

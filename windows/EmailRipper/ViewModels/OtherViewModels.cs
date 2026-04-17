@@ -141,6 +141,13 @@ public partial class LeadsViewModel : ObservableObjectBase
     }
 
     [RelayCommand]
+    public async Task ImportAsync()
+    {
+        var dlg = new EmailRipper.Views.Dialogs.LeadImportDialog { Owner = System.Windows.Application.Current.MainWindow };
+        if (dlg.ShowDialog() == true) await LoadAsync();
+    }
+
+    [RelayCommand]
     public async Task DeleteAsync(Lead l) { await _api.DeleteAsync($"/api/leads/{l.Id}"); Leads.Remove(l); }
 }
 

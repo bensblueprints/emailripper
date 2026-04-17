@@ -1,9 +1,11 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using EmailRipper.Models;
 using EmailRipper.Services;
+using EmailRipper.Views.Dialogs;
 
 namespace EmailRipper.ViewModels;
 
@@ -35,17 +37,39 @@ public partial class InboxesViewModel : ObservableObjectBase
     [RelayCommand]
     public async Task ConnectGmailAsync()
     {
-        var r = await _api.GetAsync<OAuthStartResponse>("/api/oauth/google/start");
-        if (r is null) return;
-        Process.Start(new ProcessStartInfo { FileName = r.Url, UseShellExecute = true });
+        try
+        {
+            var r = await _api.GetAsync<OAuthStartResponse>("/api/oauth/google/start");
+            if (r?.Url is null) return;
+            Process.Start(new ProcessStartInfo { FileName = r.Url, UseShellExecute = true });
+        }
+        catch (Exception e) { Error = "Gmail OAuth is not configured on the backend. Set GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET / GOOGLE_REDIRECT_URI.\n\n" + e.Message; }
     }
 
     [RelayCommand]
     public async Task ConnectMicrosoftAsync()
     {
-        var r = await _api.GetAsync<OAuthStartResponse>("/api/oauth/microsoft/start");
-        if (r is null) return;
-        Process.Start(new ProcessStartInfo { FileName = r.Url, UseShellExecute = true });
+        try
+        {
+            var r = await _api.GetAsync<OAuthStartResponse>("/api/oauth/microsoft/start");
+            if (r?.Url is null) return;
+            Process.Start(new ProcessStartInfo { FileName = r.Url, UseShellExecute = true });
+        }
+        catch (Exception e) { Error = "Microsoft OAuth is not configured on the backend. Set MS_CLIENT_ID / MS_CLIENT_SECRET / MS_REDIRECT_URI.\n\n" + e.Message; }
+    }
+
+    [RelayCommand]
+    public async Task AddImapAsync()
+    {
+        var dlg = new AddImapDialog { Owner = Application.Current.MainWindow };
+        if (dlg.ShowDialog() == true) await LoadAsync();
+    }
+
+    [RelayCommand]
+    public async Task AddSmtpRelayAsync()
+    {
+        var dlg = new AddSmtpRelayDialog { Owner = Application.Current.MainWindow };
+        if (dlg.ShowDialog() == true) await LoadAsync();
     }
 
     [RelayCommand]

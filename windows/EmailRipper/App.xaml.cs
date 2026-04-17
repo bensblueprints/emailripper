@@ -36,6 +36,7 @@ public partial class App : Application
         services.AddTransient<LeadsViewModel>();
         services.AddTransient<InboxesViewModel>();
         services.AddTransient<WarmingViewModel>();
+        services.AddTransient<DomainsViewModel>();
         services.AddTransient<TemplatesViewModel>();
         services.AddTransient<AnalyticsViewModel>();
         services.AddTransient<SettingsViewModel>();

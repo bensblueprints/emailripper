@@ -147,6 +147,32 @@ const STATEMENTS = [
   )`,
 
   `CREATE INDEX IF NOT EXISTS idx_warmup_threads_sender_day ON warmup_threads(sender_inbox_id, sent_at DESC)`,
+
+  `CREATE TABLE IF NOT EXISTS sending_domains (
+    id               BIGSERIAL PRIMARY KEY,
+    user_id          BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    domain           TEXT NOT NULL,
+    warmup_enabled   BOOLEAN NOT NULL DEFAULT TRUE,
+    daily_cap        INT NOT NULL DEFAULT 50,
+    ramp_step        INT NOT NULL DEFAULT 10,
+    current_cap      INT NOT NULL DEFAULT 20,
+    max_cap          INT NOT NULL DEFAULT 500,
+    dkim_selector    TEXT,
+    spf_status       TEXT,
+    spf_record       TEXT,
+    dkim_status      TEXT,
+    dkim_record      TEXT,
+    dmarc_status     TEXT,
+    dmarc_record     TEXT,
+    reputation_score INT NOT NULL DEFAULT 50,
+    last_checked_at  TIMESTAMPTZ,
+    notes            TEXT,
+    created_at       TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at       TIMESTAMPTZ NOT NULL DEFAULT now(),
+    UNIQUE (user_id, domain)
+  )`,
+
+  `CREATE INDEX IF NOT EXISTS idx_sending_domains_user ON sending_domains(user_id)`,
 ];
 
 export async function migrate() {

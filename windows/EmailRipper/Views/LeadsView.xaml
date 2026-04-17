@@ -10,10 +10,16 @@
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
-    <StackPanel Grid.Row="0" Margin="0,0,0,16">
-      <TextBlock Text="Leads" Style="{StaticResource H1}"/>
-      <TextBlock Text="Contacts you can pull into campaigns." Foreground="{StaticResource MutedBrush}"/>
-    </StackPanel>
+    <Grid Grid.Row="0" Margin="0,0,0,16">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/>
+      </Grid.ColumnDefinitions>
+      <StackPanel Grid.Column="0">
+        <TextBlock Text="Leads" Style="{StaticResource H1}"/>
+        <TextBlock Text="Contacts you can pull into campaigns." Foreground="{StaticResource MutedBrush}"/>
+      </StackPanel>
+      <Button Grid.Column="1" Style="{StaticResource PrimaryButton}" Content="Import CSV" Command="{Binding ImportCommand}" VerticalAlignment="Center"/>
+    </Grid>
 
     <Border Grid.Row="1" Style="{StaticResource CardStyle}" Margin="0,0,0,16">
       <Grid>

@@ -14,6 +14,7 @@ import templateRoutes from './routes/templates.js';
 import leadRoutes from './routes/leads.js';
 import warmupRoutes from './routes/warmup.js';
 import analyticsRoutes from './routes/analytics.js';
+import domainRoutes from './routes/domains.js';
 import { migrate } from './db/migrate.js';
 
 const app = express();
@@ -36,6 +37,7 @@ app.use('/api/templates', templateRoutes);
 app.use('/api/leads', leadRoutes);
 app.use('/api/warmup', warmupRoutes);
 app.use('/api/analytics', analyticsRoutes);
+app.use('/api/domains', domainRoutes);
 
 app.use(errorHandler);
 

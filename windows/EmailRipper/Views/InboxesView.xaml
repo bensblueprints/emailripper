@@ -14,9 +14,13 @@
       <StackPanel Orientation="Horizontal" Margin="0,0,0,24">
         <Button Style="{StaticResource PrimaryButton}" Content="Connect Gmail" Command="{Binding ConnectGmailCommand}" Margin="0,0,10,0"/>
         <Button Style="{StaticResource PrimaryButton}" Content="Connect Microsoft 365" Command="{Binding ConnectMicrosoftCommand}" Margin="0,0,10,0"/>
-        <Button Content="Add IMAP / SMTP" Padding="14,10"/>
-        <Button Content="Add SMTP relay" Padding="14,10" Margin="10,0,0,0"/>
+        <Button Content="Add IMAP / SMTP" Padding="14,10" Command="{Binding AddImapCommand}"/>
+        <Button Content="Add SMTP relay" Padding="14,10" Margin="10,0,0,0" Command="{Binding AddSmtpRelayCommand}"/>
+        <Button Content="Refresh" Padding="14,10" Margin="10,0,0,0" Command="{Binding LoadCommand}"/>
       </StackPanel>
+
+      <TextBlock Text="{Binding Error}" Foreground="{StaticResource DangerBrush}" TextWrapping="Wrap" Margin="0,0,0,12"
+                 Visibility="{Binding Error, Converter={StaticResource NullToVisibilityConverter}}"/>
 
       <ItemsControl ItemsSource="{Binding Inboxes}">
         <ItemsControl.ItemTemplate>
