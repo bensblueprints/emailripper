@@ -7,17 +7,11 @@ struct EmailRipperApp: App {
 
     var body: some Scene {
         WindowGroup {
-            Group {
-                if auth.token == nil {
-                    LoginView()
-                } else {
-                    ShellView()
-                }
-            }
-            .environmentObject(auth)
-            .environmentObject(api)
-            .frame(minWidth: 1100, minHeight: 720)
-            .preferredColorScheme(.dark)
+            ShellView()
+                .environmentObject(auth)
+                .environmentObject(api)
+                .frame(minWidth: 1100, minHeight: 720)
+                .preferredColorScheme(.dark)
         }
         .windowStyle(.hiddenTitleBar)
         .commands {

@@ -13,12 +13,7 @@ public partial class App : Application
     private void OnAppStartup(object sender, StartupEventArgs e)
     {
         Configure();
-        // Decide start window based on saved session
-        var auth = Services.GetRequiredService<AuthStore>();
-        Window start = string.IsNullOrEmpty(auth.Token)
-            ? new Views.LoginWindow()
-            : new Views.ShellWindow();
-        start.Show();
+        new Views.ShellWindow().Show();
     }
 
     private void Configure()
