@@ -1,0 +1,41 @@
+<UserControl x:Class="LeadRipperWarmup.Views.LeadsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             Background="{StaticResource SurfaceBrush}">
+  <Grid Margin="32,28,32,40">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <StackPanel Grid.Row="0" Margin="0,0,0,16">
+      <TextBlock Text="Leads" Style="{StaticResource H1}"/>
+      <TextBlock Text="Contacts you can pull into campaigns." Foreground="{StaticResource MutedBrush}"/>
+    </StackPanel>
+
+    <Border Grid.Row="1" Style="{StaticResource CardStyle}" Margin="0,0,0,16">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Column="0" Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}" ui:ControlHelper.PlaceholderText="Search by email, name, company…" Padding="12,10"/>
+        <Button Grid.Column="1" Content="Search" Style="{StaticResource PrimaryButton}" Margin="10,0,0,0" Command="{Binding LoadCommand}"/>
+      </Grid>
+    </Border>
+
+    <DataGrid Grid.Row="2" ItemsSource="{Binding Leads}" AutoGenerateColumns="False" HeadersVisibility="Column"
+              Background="Transparent" Foreground="White" BorderThickness="0" RowBackground="#14FFFFFF"
+              AlternatingRowBackground="#22FFFFFF" GridLinesVisibility="None" RowHeight="40">
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+        <DataGridTextColumn Header="First" Binding="{Binding FirstName}" Width="120"/>
+        <DataGridTextColumn Header="Last" Binding="{Binding LastName}" Width="120"/>
+        <DataGridTextColumn Header="Company" Binding="{Binding Company}" Width="180"/>
+        <DataGridTextColumn Header="Title" Binding="{Binding JobTitle}" Width="180"/>
+      </DataGrid.Columns>
+    </DataGrid>
+  </Grid>
+</UserControl>

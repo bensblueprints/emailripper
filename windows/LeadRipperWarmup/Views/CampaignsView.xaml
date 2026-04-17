@@ -1,0 +1,78 @@
+<UserControl x:Class="LeadRipperWarmup.Views.CampaignsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             Background="{StaticResource SurfaceBrush}">
+  <Grid Margin="32,28,32,40">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <StackPanel Grid.Row="0" Margin="0,0,0,20">
+      <TextBlock Text="Campaigns" Style="{StaticResource H1}"/>
+      <TextBlock Text="Plan, build, and launch multi-step cold email sequences." Foreground="{StaticResource MutedBrush}"/>
+    </StackPanel>
+
+    <Border Grid.Row="1" Style="{StaticResource CardStyle}" Margin="0,0,0,16">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Column="0" Text="{Binding NewName, UpdateSourceTrigger=PropertyChanged}" ui:ControlHelper.PlaceholderText="Campaign name" Padding="12,10" Margin="0,0,10,0"/>
+        <TextBox Grid.Column="1" Text="{Binding NewDescription, UpdateSourceTrigger=PropertyChanged}" ui:ControlHelper.PlaceholderText="Description (optional)" Padding="12,10" Margin="0,0,10,0"/>
+        <Button Grid.Column="2" Style="{StaticResource PrimaryButton}" Content="Create campaign" Command="{Binding CreateCommand}"/>
+      </Grid>
+    </Border>
+
+    <ListView Grid.Row="2" ItemsSource="{Binding Campaigns}" SelectedItem="{Binding Selected}" BorderThickness="0" Background="Transparent">
+      <ListView.ItemContainerStyle>
+        <Style TargetType="ListViewItem">
+          <Setter Property="Margin" Value="0,0,0,10"/>
+          <Setter Property="Padding" Value="0"/>
+          <Setter Property="Template">
+            <Setter.Value>
+              <ControlTemplate TargetType="ListViewItem">
+                <Border Background="{StaticResource Surface2Brush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1" CornerRadius="10" Padding="18">
+                  <ContentPresenter/>
+                </Border>
+              </ControlTemplate>
+            </Setter.Value>
+          </Setter>
+        </Style>
+      </ListView.ItemContainerStyle>
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+              <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="SemiBold" Foreground="White"/>
+                <Border Background="{StaticResource AccentGradient}" CornerRadius="4" Padding="6,2" Margin="10,2,0,0">
+                  <TextBlock Text="{Binding Status}" Foreground="White" FontSize="11" FontWeight="SemiBold"/>
+                </Border>
+              </StackPanel>
+              <TextBlock Text="{Binding Description}" Foreground="{StaticResource MutedBrush}" FontSize="13" Margin="0,4,0,0"/>
+              <TextBlock Foreground="{StaticResource MutedBrush}" FontSize="12" Margin="0,8,0,0">
+                <Run Text="{Binding LeadCount}"/><Run Text=" leads · "/>
+                <Run Text="{Binding SentCount}"/><Run Text=" sent · "/>
+                <Run Text="{Binding OpenedCount}"/><Run Text=" opened · "/>
+                <Run Text="{Binding RepliedCount}"/><Run Text=" replied"/>
+              </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+              <Button Content="Start" Command="{Binding DataContext.StartCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Margin="0,0,8,0"/>
+              <Button Content="Pause" Command="{Binding DataContext.PauseCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}"/>
+            </StackPanel>
+          </Grid>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </Grid>
+</UserControl>

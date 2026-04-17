@@ -1,0 +1,42 @@
+{
+  "name": "leadripper-warmup-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Warming network and cold email campaign backend",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "worker": "node src/workers/index.js",
+    "migrate": "node src/db/migrate.js",
+    "seed": "node src/db/seed.js"
+  },
+  "dependencies": {
+    "@azure/msal-node": "^2.16.2",
+    "bcryptjs": "^2.4.3",
+    "bullmq": "^5.28.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-rate-limit": "^7.4.1",
+    "google-auth-library": "^9.15.0",
+    "googleapis": "^144.0.0",
+    "helmet": "^8.0.0",
+    "imapflow": "^1.0.171",
+    "ioredis": "^5.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "mailparser": "^3.7.2",
+    "nanoid": "^5.0.9",
+    "nodemailer": "^6.9.16",
+    "pg": "^8.13.1",
+    "pino": "^9.5.0",
+    "pino-pretty": "^11.3.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
