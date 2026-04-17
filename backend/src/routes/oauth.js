@@ -81,7 +81,7 @@ router.get('/google/callback', async (req, res, next) => {
       ]
     );
     // Native app closes the browser when it sees this page
-    res.send('<html><body style="background:#0a0a0a;color:#fff;font-family:system-ui;padding:40px;text-align:center"><h2>Gmail connected</h2><p>You can close this window and return to LeadRipper Warmup.</p><script>window.close();</script></body></html>');
+    res.send('<html><body style="background:#0a0a0a;color:#fff;font-family:system-ui;padding:40px;text-align:center"><h2>Gmail connected</h2><p>You can close this window and return to Email Ripper.</p><script>window.close();</script></body></html>');
   } catch (err) { next(err); }
 });
 
@@ -117,7 +117,7 @@ router.get('/microsoft/callback', async (req, res, next) => {
          status='active', updated_at=now()`,
       [userId, email, encrypt(tok.accessToken), null, tok.expiresOn]
     );
-    res.send('<html><body style="background:#0a0a0a;color:#fff;font-family:system-ui;padding:40px;text-align:center"><h2>Outlook connected</h2><p>You can close this window and return to LeadRipper Warmup.</p><script>window.close();</script></body></html>');
+    res.send('<html><body style="background:#0a0a0a;color:#fff;font-family:system-ui;padding:40px;text-align:center"><h2>Outlook connected</h2><p>You can close this window and return to Email Ripper.</p><script>window.close();</script></body></html>');
   } catch (err) { next(err); }
 });
 

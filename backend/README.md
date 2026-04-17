@@ -1,4 +1,4 @@
-# LeadRipper Warmup — Backend
+# Email Ripper — Backend
 
 Node 20+, Express, Postgres, Redis (BullMQ).
 

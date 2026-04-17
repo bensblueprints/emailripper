@@ -3,15 +3,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "LeadRipperWarmup",
+    name: "EmailRipper",
     platforms: [.macOS(.v13)],
     products: [
-        .executable(name: "LeadRipperWarmup", targets: ["LeadRipperWarmup"])
+        .executable(name: "EmailRipper", targets: ["EmailRipper"])
     ],
     targets: [
         .executableTarget(
-            name: "LeadRipperWarmup",
-            path: "LeadRipperWarmup"
+            name: "EmailRipper",
+            path: "EmailRipper"
         )
     ]
 )

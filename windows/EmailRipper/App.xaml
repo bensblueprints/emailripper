@@ -1,0 +1,19 @@
+<Application x:Class="EmailRipper.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             xmlns:conv="clr-namespace:EmailRipper.Converters"
+             Startup="OnAppStartup">
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ui:ThemeResources RequestedTheme="Dark" />
+        <ui:XamlControlsResources />
+        <ResourceDictionary Source="Themes/Brand.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+      <conv:InverseBoolConverter x:Key="InverseBool"/>
+      <conv:ReputationColorConverter x:Key="RepColor"/>
+      <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

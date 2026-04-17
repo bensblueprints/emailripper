@@ -1,11 +1,11 @@
-# LeadRipper Warmup
+# Email Ripper
 
 Native desktop cold email + inbox warming platform. Part of the LeadRipper product family.
 
 ## What's in this repo
 
 ```
-leadripper-warmup/
+emailripper/
 ├── backend/    Node.js + Express + Postgres. Warming network, OAuth, campaign/sequence engine.
 ├── windows/    C# / WPF / .NET 8 desktop app.
 ├── mac/        Swift / SwiftUI desktop app (Xcode project).
@@ -58,6 +58,13 @@ leadripper-warmup/
 2. **Gradual ramp-up.** Per-inbox daily cap starts at a user-defined floor (default 5/day) and grows by a configured step (default +3/day) up to the ceiling (default 40/day).
 3. **Engagement loop.** Receiving inbox reads, marks important, replies in-thread, and (if the message hits spam) moves it back to inbox. All of this uses provider-native APIs — no IMAP hacks where a native API exists.
 4. **Reputation score.** 0–100 per inbox, computed from spam-rate, reply-success, thread-depth, bounce-rate over the last 14 days.
+
+## Planned CRM integrations
+
+- GoHighLevel
+- HubSpot
+- Pipedrive
+- Salesforce
 
 ## Build
 

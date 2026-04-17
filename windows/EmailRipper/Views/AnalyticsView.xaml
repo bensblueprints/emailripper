@@ -1,0 +1,15 @@
+<UserControl x:Class="EmailRipper.Views.AnalyticsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             Background="{StaticResource SurfaceBrush}">
+  <StackPanel Margin="32,28,32,40">
+    <TextBlock Text="Analytics" Style="{StaticResource H1}"/>
+    <TextBlock Text="Program-wide performance." Foreground="{StaticResource MutedBrush}" Margin="0,4,0,20"/>
+    <UniformGrid Columns="5">
+      <Border Style="{StaticResource CardStyle}" Margin="0,0,10,0"><StackPanel><TextBlock Style="{StaticResource MetricLabel}" Text="SENT"/><TextBlock Style="{StaticResource MetricValue}" Text="{Binding Totals.Sent}"/></StackPanel></Border>
+      <Border Style="{StaticResource CardStyle}" Margin="0,0,10,0"><StackPanel><TextBlock Style="{StaticResource MetricLabel}" Text="OPENED"/><TextBlock Style="{StaticResource MetricValue}" Text="{Binding Totals.Opened}"/></StackPanel></Border>
+      <Border Style="{StaticResource CardStyle}" Margin="0,0,10,0"><StackPanel><TextBlock Style="{StaticResource MetricLabel}" Text="CLICKED"/><TextBlock Style="{StaticResource MetricValue}" Text="{Binding Totals.Clicked}"/></StackPanel></Border>
+      <Border Style="{StaticResource CardStyle}" Margin="0,0,10,0"><StackPanel><TextBlock Style="{StaticResource MetricLabel}" Text="REPLIED"/><TextBlock Style="{StaticResource MetricValue}" Text="{Binding Totals.Replied}"/></StackPanel></Border>
+      <Border Style="{StaticResource CardStyle}"><StackPanel><TextBlock Style="{StaticResource MetricLabel}" Text="BOUNCED"/><TextBlock Style="{StaticResource MetricValue}" Text="{Binding Totals.Bounced}"/></StackPanel></Border>
+    </UniformGrid>
+  </StackPanel>
+</UserControl>
